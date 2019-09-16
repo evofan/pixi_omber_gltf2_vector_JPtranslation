@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>glTF 2.0 Vector Graphics Plugin for Pixi.js</title>
+  <meta name="description" content="List of examples" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <div id="index">
+    <h1>glTF 2.0 Vector Graphics Plugin for Pixi.js、日本語訳</h1>
+
+    <p>
+      <span class="blue">original page</span><br />
+      <a href="https://github.com/my2iu/pixi-omber-gltf2-vector" target="_blank">
+        glTF 2.0 Vector Graphics Plugin for Pixi.js</a>
+    </p>
+
+    <p>
+      上記ライブラリを自分なりに解釈する為に翻訳してメモ。<br />
+      （訳が間違っている可能性もあるので、その場合は原文を当たるなりして下さい）<br />
+    </p>
+
+  </div>
+
+  <div id="index">
+
+    <p><img src="images/pic_pixi_gltf.jpg" width="640" height="240" alt=""></p>
+
+    <p><span class="red">pixi-omber-gltf2-vector</span>は、<a href="https://www.pixijs.com/"
+        target="_blank">Pixi.js</a>（JavaScriptグラフィックエンジン）で高速化された<br>
+      ベクターグラフィック用のプラグインです。<br>
+      &nbsp;<br>
+      ベクターグラフィックは、透明度を含む高解像度アートのビットマップより小さいファイルサイズを提供する為、<br>
+      HTML5ゲームに特に役立ちます。
+    </p>
+
+    <p>
+      プラグインを使用すると、<a href="https://www.khronos.org/gltf/" target="_blank">glTF
+        2.0形式</a>で3Dメッシュとしてエンコードされたベクターアートをロードし、<br>
+      通常のPixi.jsスプライトのようにゲームでアートを使用出来ます。<br>
+      &nbsp;<br>
+      プラグインは、描画プログラム<a href="https://www.wobastic.com/omber/"
+        target="_blabk">Omber</a>で作成されたベクターアートで動作するように特別に設計されていますが、<br>
+      OmberはSVGファイルをロードし、glTF形式で保存する為のサポートを幾つか持っています。</p>
+
+  </div>
+
+  <div id="index">
+    <h2>Using the Plugin（プラグインを使用する）</h2>
+
+    <p><a href="https://github.com/my2iu/pixi-omber-gltf2-vector/tree/master/example"
+        target="_blank">サンプル</a>ディレクトリには、プラグインを使用してベクターアートを表示する簡単な例が含まれていますが、<br>
+      プラグインの使用に必要な手順の詳細については、以下で説明します。</p>
+
+    <h3>1.Export vector art（ベクターアートのエクスポート）</h3>
+
+    <p>
+      プラグインは、3Dグラフィックハードウェアですばやくレンダリング出来る<br>
+      3Dメッシュに変換されたベクターアートをロードします。<br>
+      &nbsp;<br>
+      Omber vector dawingプログラムを使用してベクターアートを作成し、<br>
+      これらの推奨<a href="https://www.wobastic.com/omber/help/gltf.html" target="_blank">設定</a>を使用してアートをglTF形式にエクスポートします。<br>
+      &nbsp;<br>
+      プラグインは現在、データが.GLBファイルとしてエクスポートされ、<br>
+      浮動小数点カラーを使用しない事を想定しています。<br>
+      &nbsp;<br>
+      スケールには1メートルあたり1ピクセルを使用し、<br>
+      「不透明メッシュのみをマージ」設定を使用してメッシュを出力する事をお勧めします。<br>
+      &nbsp;<br>
+      エクスポートするときは、x = 0、y = 0の原点を基準とした図面の位置に注意して下さい。<br>
+      &nbsp;<br>
+      Pixiでベクターアートを表示する場合、アートはこの原点（0, 0）を中心に配置される為、<br>
+      エクスポートする前に図面を移動して、原点が適切な位置になるようにする必要があります。
+    </p>
+
+    <h3>2.Include the plugin code（プラグインコードを含める）</h3>
+
+    <p>
+      HTMLファイルにPixi.jsライブラリとpixi-omber-gltf2-vectorプラグインコードを含めます。<br>
+      Pixiライブラリをインクルードした後に、プラグインを必ずインクルードして下さい。<br>
+      <a href="https://github.com/my2iu/pixi-omber-gltf2-vector/blob/master/build/pixi-omber-gltf2-vector.js" target="_blank">プラグインのビルド済みバージョン</a>は、ビルド（build）ディレクトリにあります。
+    </p>
+
+    <pre>
+
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.3/pixi.min.js"&gt;&lt;/script&gt;
+  &lt;script src="build/pixi-omber-gltf2-vector.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <p>Pixi-omber-gltf2-vector APIは、PIXI.omber名前空間からアクセス出来ます。</p>
+
+    <h3>3.Load the glTF .glb files（glTF .glbファイルをロードします）</h3>
+
+    <p>Pixiを初期化した後、標準のPixiローダーを使用して、<br>以前にエクスポートしたglTF2.0.glbファイルをロード出来ます。
+    </p>
+
+    <pre>
+
+  PIXI.loader
+    .add('vector.glb')
+    .load(start);
+      </pre>
+
+    <p>Pixi-omber-gltf2-vector APIは、PIXI.omber名前空間からアクセス出来ます。</p>
+
+    <h3>4.Use PIXI.omber.VectorMesh instead of PIXI.Sprite<br>
+      （PIXI.Spriteの代わりにPIXI.omber.VectorMeshを使用します）</h3>
+
+    <p>プラグインは、ビットマップスプライトに使用されるTextureオブジェクトの代わりに<br>
+      Gltfオブジェクトとして.glbファイルをロードします。<br>
+      &nbsp;<br>
+      それらを表示するには、通常のPIXI.Spriteオブジェクトの代わりにPIXI.omber.VectorMeshオブジェクトを作成します。<br>
+      通常のビットマップスプライトにPIXI.Spriteを引き続き使用します。
+    </p>
+
+    <pre>
+
+  function start(loader, resources) {
+    let mesh = new PIXI.omber.VectorMesh(resources['vector.glb'].gltf);
+    app.stage.addChild(mesh);
+  }
+        </pre>
+
+
+    <h3>5.Basic Pixi operations are supported（基本的なPixi操作がサポートされています）</h3>
+
+    <p>現在、通常のPixi変換はVectorMeshでサポートされています。<br>
+      たとえば、メッシュにx、y、回転、スケールの値を割り当てて、画面上で移動出来ます。<br>
+      ベクトルオブジェクトのタッチとクリックを検出する為の基本的な長方形のヒットボックスもサポートされています。
+      通常のビットマップスプライトにPIXI.Spriteを引き続き使用します。
+    </p>
+
+    <pre>
+
+  function start(loader, resources) {
+    let mesh = new PIXI.omber.VectorMesh(resources['vector.glb'].gltf);
+    app.stage.addChild(mesh);
+  }
+        </pre>
+
+
+  </div>
+
+  <div id="index">
+    <h2>Examples（サンプル）</h2>
+
+    <p><a href="https://github.com/my2iu/pixi-omber-gltf2-vector/tree/master/example"
+        target="_blank">サンプル</a>ディレクトリには、プラグインを使用してベクターアートを表示する簡単な例が含まれていますが、<br>
+      プラグインの使用に必要な手順の詳細については、以下で説明します。</p>
+
+    <h3>1.Export vector art（ベクターアートのエクスポート）</h3>
+
+    <p>
+      PIXIプラグインの使用方法を示すさまざまなサンプルが提供されています。
+
+    </p>
+    <ul>
+      <li><a href="https://github.com/my2iu/pixi-omber-gltf2-vector/blob/master/example/example.html"
+          target="_blank">PIXI.jsへのベクターアートの基本的な読み込み</a></li>
+      <li><a href="https://github.com/my2iu/pixi-omber-gltf2-vector/blob/master/example/mask_example.html"
+          target="_blank">ベクターアートとマスクを使用してグラデーションシェーディングエリアチャートを描画する</a></li>
+      <li><a href="https://github.com/my2iu/pixi-omber-gltf2-vector/blob/master/example/html_img_example.html" target="_blank">PImber.jsを使用して実行時にレンダリングすることにより、Omberベクターアートを通常のHTMLイメージとして使用する</a></li>
+    </ul>
+
+
+  </div>
+
+</body>
+
+</html>
