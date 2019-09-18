@@ -10,3 +10,6 @@ reference
 >glTFの中身をみる  
 >VS Code の拡張機能である glTF Tools がおすすめです。  
 >glTFのバイナリ形式であるglbを展開してくれたり、glTFを3DでPreviewする機能が備わっています。  
+
+**glTF Viewer**  
+[https://github.com/donmccurdy/three-gltf-viewer](https://github.com/donmccurdy/three-gltf-viewer)
