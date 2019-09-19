@@ -26,4 +26,5 @@ used "Run Online Version".
 [https://free-style.mkstyle.net/web/free-border/vector-snowflakes-collections.html](https://free-style.mkstyle.net/web/free-border/vector-snowflakes-collections.html)  
 
 **8 Free Snowflake Vectors for Your Winter Designs**  
-[https://blog.spoongraphics.co.uk/freebies/8-free-snowflake-vectors-for-your-winter-designs](https://blog.spoongraphics.co.uk/freebies/8-free-snowflake-vectors-for-your-winter-designs)
+[https://blog.spoongraphics.co.uk/freebies/8-free-snowflake-vectors-for-your-winter-designs](https://blog.spoongraphics.co.uk/freebies/8-free-snowflake-vectors-for-your-winter-designs)  
+I used snow material for the sample.  
