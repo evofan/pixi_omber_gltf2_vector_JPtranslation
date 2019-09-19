@@ -1,0 +1,97 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "Omber by Wobastic Software",
+    "extras": {
+      "OMBER_zSeparation": 0.1
+    }
+  },
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "COLOR_0": 1
+          },
+          "material": 0,
+          "indices": 2
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0
+      }
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 1085,
+      "min": [
+        -85.0395,
+        -85.0395,
+        0
+      ],
+      "max": [
+        85.0395,
+        85.0395,
+        6.299999999999994
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 12,
+      "componentType": 5121,
+      "count": 1085,
+      "type": "VEC4",
+      "normalized": true
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 5190,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteStride": 16,
+      "byteLength": 17360
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 17360,
+      "byteLength": 10380
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "snow4_data.bin",
+      "byteLength": 27740
+    }
+  ]
+}
